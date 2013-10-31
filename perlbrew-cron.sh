@@ -14,23 +14,23 @@ function error() {
 }
 
 if [ -z "$COMMAND" ]; then
-	error "Usage: perlbrew-cron <command>"
+    error "Usage: perlbrew-cron <command>"
 fi
 
 if [ ! -f "$HOME/.perlbrew/init" ]; then
-	error "no such file: $HOME/.perlbrew/init";
+    error "no such file: $HOME/.perlbrew/init";
 fi
 
 source $INIT
 
 if [ -z $PERLBREW_ROOT ]; then
-	error "unable to load PERLBREW_ROOT environment variable"
+    error "unable to load PERLBREW_ROOT environment variable"
 fi
 
 BASHRC="$PERLBREW_ROOT/etc/bashrc"
 
 if [ ! -f $BASHRC ]; then
-	error "no such file $PERLBREW_ROOT/etc/bashrc"
+    error "no such file $PERLBREW_ROOT/etc/bashrc"
 fi
 
 source $BASHRC
