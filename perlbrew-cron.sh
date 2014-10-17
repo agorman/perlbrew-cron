@@ -6,7 +6,8 @@
 # terms as the Perl 5 programming language system itself.
 
 COMMAND=${1:+"$@"}
-INIT="$HOME/.perlbrew/init"
+
+PERLBREW_HOME=${PERLBREW_HOME:=$HOME/.perlbrew}
 
 function error() {
     echo $1
@@ -17,11 +18,15 @@ if [ -z "$COMMAND" ]; then
     error "Usage: perlbrew-cron <command>"
 fi
 
-if [ ! -f "$HOME/.perlbrew/init" ]; then
-    error "no such file: $HOME/.perlbrew/init";
+if [ ! -f "$PERLBREW_HOME/init" ]; then
+    error "no such file: $PERLBREW_HOME/init";
 fi
 
-source $INIT
+echo $INIT
+
+source $"$PERLBREW_HOME/init"
+
+#printenv;
 
 if [ -z $PERLBREW_ROOT ]; then
     error "unable to load PERLBREW_ROOT environment variable"

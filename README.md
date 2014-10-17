@@ -7,8 +7,10 @@ perlbrew-cron - Run scripts with cron from your perlbrew environment
 This script will init your perlbrew environment and run perlbrew exec with
 your command.
 
-This script looks for $HOME/.perlbrew/init for the PERLBREW_ROOT environment
-variable and $PERLBREW_ROOT/etc/bashrc to init the perlbrew environment.
+By default this script looks in $PERLBREW_HOME/init for the PERLBREW_ROOT
+environment variable. If $PERLBREW_HOME isn't set then it will look in
+$HOME/.perlbrew/init. It then includes $PERLBREW_ROOT/etc/bashrc to init the
+perlbrew environment.
 
 # SYNOPSIS
 
@@ -23,6 +25,10 @@ Run with a specific perl version and lib
 Run all installed perlbrew versions and their local libs
   
   	@weekly perlbrew-cron /home/andy/scripts/weekly.pl
+
+Run script with a non-standard PERLBREW_HOME
+
+	@weekly PERLBREW_HOME=/opt/perlbrew/home perlbrew-cron /home/andy/my_home.pl
 
 # AUTHOR
 
