@@ -22,11 +22,7 @@ if [ ! -f "$PERLBREW_HOME/init" ]; then
     error "no such file: $PERLBREW_HOME/init";
 fi
 
-echo $INIT
-
 source $"$PERLBREW_HOME/init"
-
-#printenv;
 
 if [ -z $PERLBREW_ROOT ]; then
     error "unable to load PERLBREW_ROOT environment variable"
