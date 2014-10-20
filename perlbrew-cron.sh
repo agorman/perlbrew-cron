@@ -12,7 +12,7 @@ PERLBREW_HOME=${PERLBREW_HOME:=$HOME/.perlbrew}
 function error() {
     echo $1
     exit 1;
-}
+}f
 
 if [ -z "$COMMAND" ]; then
     error "Usage: perlbrew-cron <command>"
@@ -36,4 +36,4 @@ fi
 
 source $BASHRC
 
-exec perlbrew exec $COMMAND
+exec perlbrew exec "$@"
