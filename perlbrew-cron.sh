@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # This software is copyright (c) 2013 by Andy Gorman.
 #
